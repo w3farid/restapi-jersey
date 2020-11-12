@@ -11,6 +11,7 @@ import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
 
 import com.jee.round44.account.UserModel;
+import com.jee.round44.product.Product;
 
 public class HibernateUtil {
     private static SessionFactory sessionFactory;
@@ -36,6 +37,7 @@ public class HibernateUtil {
                 configuration.setProperties(settings);
 
                 configuration.addAnnotatedClass(UserModel.class);
+                configuration.addAnnotatedClass(Product.class);
 
                 ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                     .applySettings(configuration.getProperties()).build();
